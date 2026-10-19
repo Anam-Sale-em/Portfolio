@@ -242,7 +242,7 @@
   .app .store-link{font-size:.8rem}
 
   /* ---------- SKILLS ---------- */
-  .skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1px;
+  .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
        background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
   .skill-group{background:var(--bg);padding:26px 24px}
   .skill-group h4{font-family:var(--font-mono);font-weight:500;font-size:.78rem;color:var(--accent);
@@ -363,6 +363,8 @@
     .metric{text-align:left}
     .facts{grid-template-columns:1fr}
   }
+  @media (max-width:900px){ .skills{grid-template-columns:repeat(2,1fr)} }
+  @media (max-width:600px){ .skills{grid-template-columns:1fr} }
   @media (max-width:420px){ .stats{flex-wrap:wrap;gap:24px} }
 
   @media (prefers-reduced-motion: reduce){
@@ -437,7 +439,7 @@
           <a href="#contact" class="btn btn-connect">Get in touch</a>
         </div>
         <div class="stats">
-          <div class="stat"><div class="num" data-count="5"><i>+</i></div><div class="lbl">years shipping production software</div></div>
+          <div class="stat"><div class="num" data-count="4"></div><div class="lbl">years shipping production software</div></div>
           <div class="stat"><div class="num" data-count="6"></div><div class="lbl">automation systems delivered</div></div>
           <div class="stat"><div class="num" data-count="5"></div><div class="lbl">iOS apps live on the App Store</div></div>
         </div>
@@ -456,14 +458,14 @@
       <div class="about-body">
         <div class="tag">About</div>
         <p style="margin-top:20px">I'm a full-stack engineer and technical lead in Bhopal, India. I started out shipping freelance Flutter and Android apps — and over the last year I've gone deep on AI workflow automation.</p>
-        <p>These days I build the pipelines and LLM agents that do the work, plus the mobile apps and Firebase backends that run and steer them. I own each system end to end: architecture, deployment, and live monitoring — guiding a remote Agile team through delivery, and taking incoming client requests from scoping and feasibility to release.</p>
+        <p>At Helpables I built the pipelines and LLM agents that do the work, plus the mobile apps and Firebase backends that run and steer them. I owned each system end to end: architecture, deployment, and live monitoring — guiding a remote Agile team through delivery, and taking incoming requests from scoping and feasibility to release.</p>
       </div>
       <div class="facts">
         <div class="fact"><div class="k">focus</div><div class="v">AI automation &amp; full-stack</div></div>
         <div class="fact"><div class="k">based in</div><div class="v">Bhopal, India</div></div>
-        <div class="fact"><div class="k">currently</div><div class="v">AI Automation Engineer @ Helpables</div></div>
+        <div class="fact"><div class="k">most recently</div><div class="v">AI Automation Engineer @ Helpables, Dec 2022 – Sep 2026</div></div>
         <div class="fact"><div class="k">works with</div><div class="v">n8n · LLM agents · Flutter · React Native · Firebase</div></div>
-        <div class="fact"><div class="k">open to</div><div class="v"><a href="#contact">new automation &amp; product work</a></div></div>
+        <div class="fact"><div class="k">open to</div><div class="v"><a href="#contact">new automation &amp; product work</a> · available now</div></div>
       </div>
     </div>
   </section>
@@ -919,12 +921,12 @@
   <section class="block wrap" id="experience">
     <div class="head">
       <div class="tag">Experience</div>
-      <h2>Five years, from first Flutter build to leading automation delivery.</h2>
+      <h2>Four years, from first Flutter build to leading automation delivery.</h2>
     </div>
     <div class="exp-grid">
       <div class="timeline">
         <div class="tl now">
-          <div class="when">Dec 2022 — Present · Remote</div>
+          <div class="when">Dec 2022 — Sep 2026 · Remote</div>
           <h3>Full-Stack Developer → AI Automation Engineer</h3>
           <div class="org">Helpables LLC</div>
           <ul>
