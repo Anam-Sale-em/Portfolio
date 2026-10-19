@@ -147,7 +147,7 @@
   .stat .num i{font-style:normal;color:var(--accent)}
   .stat .lbl{font-size:.82rem;color:var(--faint);margin-top:8px;max-width:14ch}
 
-  .graph-wrap{position:relative;aspect-ratio:1/0.92;min-height:340px;
+  .graph-wrap{position:relative;width:100%;aspect-ratio:1/0.92;min-height:340px;
        border:1px solid var(--line);border-radius:20px;overflow:hidden;
        background:linear-gradient(160deg, rgba(15,56,50,0.5), rgba(6,29,27,0.2));
        box-shadow:inset 0 1px 0 rgba(255,255,255,0.04), 0 30px 80px -50px #000}
@@ -301,6 +301,43 @@
   .foot .fb{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700}
   .foot small{color:var(--faint);font-size:.82rem}
 
+  /* ---------- WORKFLOW LIBRARY ---------- */
+  .wf-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+       border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-bottom:28px}
+  .wf-stat{background:var(--bg);padding:20px 22px}
+  .wf-stat .num{font-family:var(--font-display);font-weight:700;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:-.03em;line-height:1}
+  .wf-stat .lbl{font-size:.8rem;color:var(--faint);margin-top:8px}
+  .wf-filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .wf-filter{font-family:var(--font-mono);font-size:.76rem;color:var(--muted);background:rgba(255,255,255,0.02);
+       border:1px solid var(--line-2);border-radius:8px;padding:7px 12px;cursor:pointer;
+       transition:border-color .2s,color .2s,background .2s}
+  .wf-filter:hover{border-color:var(--accent);color:var(--ink)}
+  .wf-filter[aria-pressed="true"]{background:var(--accent-soft);border-color:var(--accent);color:var(--accent)}
+  .wf-filter b{font-weight:500;color:var(--faint);margin-left:6px}
+  .wf-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+  .wf{border:1px solid var(--line);border-radius:14px;padding:20px;background:var(--surface);
+       display:flex;flex-direction:column;gap:10px;transition:border-color .25s,transform .25s}
+  .wf:hover{border-color:var(--line-2);transform:translateY(-2px)}
+  .wf[hidden]{display:none}
+  .wf-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+  .wf-sys{font-family:var(--font-mono);font-size:.68rem;color:var(--sage)}
+  .wf-n{font-family:var(--font-mono);font-size:.68rem;color:var(--faint);white-space:nowrap}
+  .wf h4{font-family:var(--font-display);font-weight:700;font-size:1.05rem;letter-spacing:-.01em;line-height:1.25}
+  .wf p{font-size:.88rem;color:var(--muted);line-height:1.55}
+  .wf .hl{font-size:.82rem;color:var(--ink);border-left:2px solid var(--accent);padding-left:10px;line-height:1.5;margin-top:auto}
+  .wf .trig{font-family:var(--font-mono);font-size:.68rem;color:var(--accent)}
+  .patterns{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px 28px;margin-top:48px}
+  .pattern{border-top:1px solid var(--line-2);padding-top:16px}
+  .pattern h4{font-family:var(--font-display);font-weight:700;font-size:1rem;letter-spacing:-.01em}
+  .pattern p{font-size:.86rem;color:var(--muted);margin-top:6px;line-height:1.55}
+  .wf-note{font-size:.84rem;color:var(--faint);margin-top:34px}
+  .wf-note a{color:var(--accent)}
+  .wf-link{font-family:var(--font-mono);font-size:.76rem;color:var(--muted);border-bottom:1px dashed var(--line-2);
+       transition:color .2s,border-color .2s;white-space:nowrap}
+  .wf-link:hover{color:var(--accent);border-color:var(--accent)}
+  .foot-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+  @media (max-width:720px){ .wf-stats{grid-template-columns:1fr 1fr} .wf-grid{grid-template-columns:1fr} }
+
   /* ---------- RESPONSIVE ---------- */
   @media (max-width:1180px){ .spine{display:none} }
   @media (max-width:900px){
@@ -341,6 +378,7 @@
   <a href="#home" data-spine="home" class="active"><span>Home</span></a>
   <a href="#about" data-spine="about"><span>About</span></a>
   <a href="#work" data-spine="work"><span>Selected work</span></a>
+  <a href="#workflows" data-spine="workflows"><span>Workflow library</span></a>
   <a href="#apps" data-spine="apps"><span>Shipped apps</span></a>
   <a href="#skills" data-spine="skills"><span>Stack</span></a>
   <a href="#experience" data-spine="experience"><span>Experience</span></a>
@@ -362,6 +400,7 @@
     <div class="nav-links">
       <a href="#about">About</a>
       <a href="#work">Work</a>
+      <a href="#workflows">Workflows</a>
       <a href="#apps">Apps</a>
       <a href="#skills">Stack</a>
       <a href="#experience">Experience</a>
@@ -376,6 +415,7 @@
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about">About</a>
   <a href="#work">Work</a>
+  <a href="#workflows">Workflows</a>
   <a href="#apps">Apps</a>
   <a href="#skills">Stack</a>
   <a href="#experience">Experience</a>
@@ -444,7 +484,7 @@
           <div class="proj-lead">
             <h3>Propel</h3>
             <div class="oneline">AI Upwork proposal &amp; video pipeline</div>
-            <p class="desc">Turns a curated Upwork job into a ready-to-send proposal and a multi-scene AI video with no manual writing. An LLM drafts the use case, script, and proposal; a companion iOS app handles approvals and comment-driven revisions over webhooks; on approval the pipeline renders the video with scene generation, status polling, and retries, then stores it in Firebase.</p>
+            <p class="desc">Turns a curated Upwork job into a ready-to-send proposal and a branded 36-frame visual storyboard with no manual writing. Chained LLM agents draft the use case, storyboard, and proposal; a companion iOS app handles approvals and comment-driven revisions over webhooks; on approval the pipeline generates every frame with status polling, retries, and mid-run token refresh, then stores them in Firebase.</p>
           </div>
           <div class="proj-meta"><span class="live-badge">Live on App Store</span></div>
         </div>
@@ -455,13 +495,14 @@
           <span class="flow-edge" style="--d:.5s"></span>
           <span class="flow-step"><span class="d"></span>App approval</span>
           <span class="flow-edge" style="--d:1s"></span>
-          <span class="flow-step"><span class="d"></span>Render video</span>
+          <span class="flow-step"><span class="d"></span>Generate frames</span>
           <span class="flow-edge" style="--d:1.5s"></span>
           <span class="flow-step hot"><span class="d"></span>Firebase</span>
         </div>
         <div class="proj-foot">
-          <div class="chips"><span class="chip">n8n</span><span class="chip">LLM</span><span class="chip">KIE.AI</span><span class="chip">Shotstack</span><span class="chip">iOS</span><span class="chip">Firebase</span></div>
-          <a class="store-link" href="https://apps.apple.com/" target="_blank" rel="noopener">View on App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a>
+          <div class="chips"><span class="chip">n8n</span><span class="chip">LLM</span><span class="chip">Gemini</span><span class="chip">KIE.AI</span><span class="chip">iOS</span><span class="chip">Firebase</span></div>
+          <div class="foot-links"><a class="wf-link" href="#workflows" data-jump="propel">4 workflows · 44 nodes →</a>
+          <a class="store-link" href="https://apps.apple.com/us/app/propelapp/id6789277013" target="_blank" rel="noopener">View on App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a></div>
         </div>
       </article>
 
@@ -486,7 +527,8 @@
         </div>
         <div class="proj-foot">
           <div class="chips"><span class="chip">n8n</span><span class="chip">LLM</span><span class="chip">LinkedIn API</span><span class="chip">React Native</span></div>
-          <a class="store-link" href="https://apps.apple.com/" target="_blank" rel="noopener">View on App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a>
+          <div class="foot-links"><a class="wf-link" href="#workflows" data-jump="diu">3 workflows · 122 nodes →</a>
+          <a class="store-link" href="https://apps.apple.com/us/app/diu-ai/id6780266208" target="_blank" rel="noopener">View on App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a></div>
         </div>
       </article>
 
@@ -512,6 +554,7 @@
         </div>
         <div class="proj-foot">
           <div class="chips"><span class="chip">n8n</span><span class="chip">Firestore</span><span class="chip">Twilio</span><span class="chip">Vapi</span><span class="chip">Resend</span><span class="chip">guardrails</span></div>
+          <a class="wf-link" href="#workflows" data-jump="leads">8 workflows · 92 nodes →</a>
         </div>
       </article>
 
@@ -536,6 +579,7 @@
         </div>
         <div class="proj-foot">
           <div class="chips"><span class="chip">n8n</span><span class="chip">LLM</span><span class="chip">GoHighLevel</span><span class="chip">LinkedIn</span></div>
+          <a class="wf-link" href="#workflows" data-jump="linkedin">2 workflows · 46 nodes →</a>
         </div>
       </article>
 
@@ -561,6 +605,7 @@
         </div>
         <div class="proj-foot">
           <div class="chips"><span class="chip">LLM agent</span><span class="chip">GoHighLevel</span><span class="chip">auth</span><span class="chip">multi-turn</span></div>
+          <a class="wf-link" href="#workflows" data-jump="linkedin">1 workflow · 32 nodes →</a>
         </div>
       </article>
 
@@ -585,10 +630,204 @@
         </div>
         <div class="proj-foot">
           <div class="chips"><span class="chip">n8n</span><span class="chip">LLM</span><span class="chip">vision</span><span class="chip">Firestore</span></div>
+          <a class="wf-link" href="#workflows" data-jump="aid">1 workflow · 24 nodes →</a>
         </div>
       </article>
 
     </div>
+  </section>
+
+  <!-- WORKFLOW LIBRARY -->
+  <section class="block wrap" id="workflows">
+    <div class="head">
+      <div class="tag">Under the hood</div>
+      <h2>The workflow library behind those systems.</h2>
+      <p>Every n8n workflow running in production behind the six systems above — what triggers it, what it does, and the one engineering detail that makes it hold up.</p>
+    </div>
+
+    <div class="wf-stats">
+      <div class="wf-stat"><div class="num">20</div><div class="lbl">production n8n workflows</div></div>
+      <div class="wf-stat"><div class="num">362</div><div class="lbl">nodes across all of them</div></div>
+      <div class="wf-stat"><div class="num">30</div><div class="lbl">AI agent &amp; classifier steps</div></div>
+      <div class="wf-stat"><div class="num">15</div><div class="lbl">services integrated</div></div>
+    </div>
+
+    <div class="wf-filters" role="group" aria-label="Filter workflows by system">
+      <button class="wf-filter" data-filter="all" aria-pressed="true">All<b>20</b></button>
+      <button class="wf-filter" data-filter="propel" aria-pressed="false">Propel<b>4</b></button>
+      <button class="wf-filter" data-filter="diu" aria-pressed="false">Diu<b>3</b></button>
+      <button class="wf-filter" data-filter="leads" aria-pressed="false">Leads Platform<b>8</b></button>
+      <button class="wf-filter" data-filter="linkedin" aria-pressed="false">LinkedIn CRM &amp; chat<b>3</b></button>
+      <button class="wf-filter" data-filter="aid" aria-pressed="false">Email requests<b>1</b></button>
+      <button class="wf-filter" data-filter="ops" aria-pressed="false">Ops<b>1</b></button>
+    </div>
+
+    <div class="wf-grid">
+
+      <!-- Propel -->
+      <article class="wf" data-sys="propel">
+        <div class="wf-top"><span class="wf-sys">Propel</span><span class="wf-n">4 nodes</span></div>
+        <h4>Upwork Job Intake</h4>
+        <div class="trig">form trigger</div>
+        <p>Captures a job's title, budget, description, skills and platform, and writes it to Firestore as the pipeline's starting record.</p>
+        <div class="hl">Comma-separated skills become a typed Firestore array, not a string.</div>
+      </article>
+      <article class="wf" data-sys="propel">
+        <div class="wf-top"><span class="wf-sys">Propel</span><span class="wf-n">13 nodes · 3 AI</span></div>
+        <h4>Proposal Generation</h4>
+        <div class="trig">webhook</div>
+        <p>Three chained Gemini agents: a realistic use case for the job, a 36-frame visual storyboard, then a personalized 250–450 word proposal built on both.</p>
+        <div class="hl">Every agent is bound to a structured output parser; one generic converter turns any JS value into typed Firestore fields.</div>
+      </article>
+      <article class="wf" data-sys="propel">
+        <div class="wf-top"><span class="wf-sys">Propel</span><span class="wf-n">7 nodes · 1 AI</span></div>
+        <h4>Proposal &amp; Storyboard Revision</h4>
+        <div class="trig">webhook · from the app</div>
+        <p>Applies a reviewer's comments to the proposal and all 36 frames at once, copying through everything the feedback didn't touch.</p>
+        <div class="hl">Hard rules the model can't break even if a comment asks: same frame count, order and visual style spine.</div>
+      </article>
+      <article class="wf" data-sys="propel">
+        <div class="wf-top"><span class="wf-sys">Propel</span><span class="wf-n">20 nodes</span></div>
+        <h4>Storyboard Frame Generation</h4>
+        <div class="trig">webhook · on approval</div>
+        <p>Loops every frame through KIE.AI Nano Banana Edit with presenter and logo reference images, polls each task, uploads the PNGs to Firebase Storage and mints download tokens.</p>
+        <div class="hl">Token-refresh branch for long runs, a credit-exhaustion guard, and failed tasks re-queued automatically.</div>
+      </article>
+
+      <!-- Diu -->
+      <article class="wf" data-sys="diu">
+        <div class="wf-top"><span class="wf-sys">Diu</span><span class="wf-n">37 nodes · 3 AI</span></div>
+        <h4>Trending Keyword Discovery</h4>
+        <div class="trig">2 schedules</div>
+        <p>Pulls a tracked channel's newest videos with view and like stats, skips anything already approved, and generates seed and SEO keywords. The app branch generates three fresh keyword / rising-topic pairs per niche.</p>
+        <div class="hl">Every keyword ever generated for a niche is fed back in as an exclusion list, so nothing repeats.</div>
+      </article>
+      <article class="wf" data-sys="diu">
+        <div class="wf-top"><span class="wf-sys">Diu</span><span class="wf-n">37 nodes · 5 AI</span></div>
+        <h4>Daily Content Generation</h4>
+        <div class="trig">schedule · email reply · webhook</div>
+        <p>Turns approved keywords into a blog outline, LinkedIn post, 6–8 slide carousel and hashtags. Approval works by email reply or in-app; revisions apply only what was asked.</p>
+        <div class="hl">Per-user dedup on user + keyword + rising query, so the 30-minute app run never generates twice.</div>
+      </article>
+      <article class="wf" data-sys="diu">
+        <div class="wf-top"><span class="wf-sys">Diu</span><span class="wf-n">48 nodes · 6 AI</span></div>
+        <h4>Weekly Blog &amp; LinkedIn Publishing</h4>
+        <div class="trig">weekly schedule · email reply · webhook</div>
+        <p>Expands the week's approved content into a 1,500–2,500 word article with a Mermaid architecture diagram, then posts to the company LinkedIn page with the rendered diagram attached.</p>
+        <div class="hl">A Sunday-anchored time window means content approved after a run waits for the next one instead of being processed twice.</div>
+      </article>
+
+      <!-- Leads -->
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">24 nodes</span></div>
+        <h4>Lead Research Ingestion</h4>
+        <div class="trig">weekly schedule</div>
+        <p>Finds new lead-research spreadsheets in Google Drive, parses five sheets per file, writes rows into four Firestore collections and emails an HTML summary report.</p>
+        <div class="hl">A processed-files ledger makes re-runs idempotent; writes go out as batchWrite chunks of 500.</div>
+      </article>
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">7 nodes · 1 AI</span></div>
+        <h4>Outreach Message Generation</h4>
+        <div class="trig">webhook · on lead approval</div>
+        <p>Drafts a 110–150 word first message and a short follow-up from the lead's research data, naming the specific gaps found in their digital presence.</p>
+        <div class="hl">Anti-fabrication and no-flattery guardrails; sender identity comes from each agency, never hardcoded.</div>
+      </article>
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">6 nodes · 1 AI</span></div>
+        <h4>Outreach Message Revision</h4>
+        <div class="trig">webhook · reviewer comment</div>
+        <p>Rewrites only what the reviewer's comment asks for and stores a one-line summary of the change alongside the previous versions.</p>
+        <div class="hl">Missing input fails loudly into the error workflow instead of silently saving an empty revision.</div>
+      </article>
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">8 nodes</span></div>
+        <h4>Email Sender</h4>
+        <div class="trig">webhook</div>
+        <p>Sends the approved message through the Resend API and marks the draft as sent in Firestore.</p>
+        <div class="hl">Validates every field, accepts HTML or plain text, and returns clear 200 / 400 / 502 responses to the app.</div>
+      </article>
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">6 nodes</span></div>
+        <h4>Email Sender v1</h4>
+        <div class="trig">webhook</div>
+        <p>The first version — straight from webhook to Resend to Firestore, sending from Resend's shared test address.</p>
+        <div class="hl">Kept as the baseline that the validated v2 contract replaced.</div>
+      </article>
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">9 nodes</span></div>
+        <h4>SMS Sender</h4>
+        <div class="trig">webhook</div>
+        <p>Sends outreach by text through Twilio and logs the message SID and delivery status on the lead's draft.</p>
+        <div class="hl">Normalises any phone format to E.164 and enforces Twilio's 1,600-character limit before sending.</div>
+      </article>
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">9 nodes</span></div>
+        <h4>AI Voice Call</h4>
+        <div class="trig">webhook</div>
+        <p>Starts an outbound AI voice call to the lead through Vapi and logs the call ID and status on the draft.</p>
+        <div class="hl">Lead name, pitch and talking points are injected into the assistant per call, so one assistant serves every lead.</div>
+      </article>
+      <article class="wf" data-sys="leads">
+        <div class="wf-top"><span class="wf-sys">Leads Platform</span><span class="wf-n">23 nodes</span></div>
+        <h4>Sending Domain Setup</h4>
+        <div class="trig">2 webhooks</div>
+        <p>Registers an agency's own domain in Resend and returns the DNS records to add; a second endpoint re-checks verification on demand and saves the status.</p>
+        <div class="hl">Reuses a domain if it already exists, so retries never create duplicates.</div>
+      </article>
+
+      <!-- LinkedIn -->
+      <article class="wf" data-sys="linkedin">
+        <div class="wf-top"><span class="wf-sys">LinkedIn CRM</span><span class="wf-n">17 nodes · 2 AI</span></div>
+        <h4>Comment Scoring &amp; Reply Drafting</h4>
+        <div class="trig">daily schedule</div>
+        <p>Scrapes the company's posts and comments with Apify, classifies intent (high intent, inquiry, engagement, irrelevant) and drafts a context-specific reply for the team to post.</p>
+        <div class="hl">Filters out emoji-only noise, the company's own comments, already-answered threads and repeats across runs.</div>
+      </article>
+      <article class="wf" data-sys="linkedin">
+        <div class="wf-top"><span class="wf-sys">LinkedIn CRM</span><span class="wf-n">29 nodes</span></div>
+        <h4>Reply Verification &amp; CRM Sync</h4>
+        <div class="trig">email reply</div>
+        <p>When the team confirms a reply, it re-scrapes the post to check the reply is actually live, then gates CRM entry behind an approval form. Approved leads become GoHighLevel contacts, notes, opportunities and tasks.</p>
+        <div class="hl">Unverified replies trigger a reminder instead of moving on — nothing enters the CRM on trust.</div>
+      </article>
+      <article class="wf" data-sys="linkedin">
+        <div class="wf-top"><span class="wf-sys">LinkedIn chat</span><span class="wf-n">32 nodes · 4 AI</span></div>
+        <h4>AI Chat Agent &amp; Booking</h4>
+        <div class="trig">public chat</div>
+        <p>Authenticates leads by reference code, holds the conversation in memory, offers live calendar slots, books the call, moves the pipeline stage and notifies the team.</p>
+        <div class="hl">Bad codes and taken, past or weekend slots get friendly AI-written replies — never a raw error.</div>
+      </article>
+
+      <!-- Aid -->
+      <article class="wf" data-sys="aid">
+        <div class="wf-top"><span class="wf-sys">Email requests</span><span class="wf-n">24 nodes · 4 AI</span></div>
+        <h4>Email Request Collector</h4>
+        <div class="trig">inbox trigger</div>
+        <p>Classifies incoming emails, extracts a structured request (category, items, quantities, units, location), stores attachments or generates a fallback image, and routes it through approval to Firestore.</p>
+        <div class="hl">Vague emails are flagged for clarification, and images from rejected requests are deleted from storage.</div>
+      </article>
+
+      <!-- Ops -->
+      <article class="wf" data-sys="ops">
+        <div class="wf-top"><span class="wf-sys">Ops</span><span class="wf-n">2 nodes</span></div>
+        <h4>Global Error Alerts</h4>
+        <div class="trig">error trigger</div>
+        <p>Every workflow reports here. Failures arrive by email with the failing node, HTTP status, request body, stack trace and a link to the execution.</p>
+        <div class="hl">Small on purpose: one place to catch everything above.</div>
+      </article>
+
+    </div>
+
+    <div class="patterns">
+      <div class="pattern"><h4>Firestore without the credential node</h4><p>Service-account JWTs signed with Node's crypto module inside n8n, exchanged for OAuth tokens and used against the Firestore and Storage REST APIs.</p></div>
+      <div class="pattern"><h4>Idempotent by design</h4><p>File ledgers, composite dedup keys, upserts on IDs and anchored time windows, so any workflow can re-run safely.</p></div>
+      <div class="pattern"><h4>Humans approve, machines repeat</h4><p>Approval gates via in-app webhooks, email send-and-wait forms and reply-to-confirm — with revision loops that change only what was asked.</p></div>
+      <div class="pattern"><h4>Guardrailed LLM output</h4><p>Structured output parsers on every agent, anti-fabrication rules and constrained-diff revisions keep generated content usable without cleanup.</p></div>
+      <div class="pattern"><h4>Webhook contracts the app can trust</h4><p>Input validation up front and explicit 200 / 400 / 502 responses, so the app always knows what happened.</p></div>
+      <div class="pattern"><h4>Built for long-running jobs</h4><p>Polling loops, retries, token refresh mid-run and a global error workflow for the jobs that take minutes, not seconds.</p></div>
+    </div>
+
+    <p class="wf-note">Built at Helpables, so the source stays private — <a href="#contact">happy to walk through any of these on a call</a>.</p>
   </section>
 
   <!-- APPS -->
@@ -602,13 +841,13 @@
         <div class="ico" style="background:linear-gradient(150deg,#f6b44c,#e07b39)">P</div>
         <h4>Propel</h4>
         <p>AI proposal-and-video generation for Upwork.</p>
-        <a class="store-link" href="https://apps.apple.com/" target="_blank" rel="noopener">App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a>
+        <a class="store-link" href="https://apps.apple.com/us/app/propelapp/id6789277013" target="_blank" rel="noopener">App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a>
       </div>
       <div class="app">
         <div class="ico" style="background:linear-gradient(150deg,#4fd1b5,#2f9e86)">D</div>
         <h4>Diu AI</h4>
         <p>Daily trend-to-content publishing for LinkedIn.</p>
-        <a class="store-link" href="https://apps.apple.com/" target="_blank" rel="noopener">App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a>
+        <a class="store-link" href="https://apps.apple.com/us/app/diu-ai/id6780266208" target="_blank" rel="noopener">App Store <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17 17 7M17 7H8M17 7v9"/></svg></a>
       </div>
       <div class="app">
         <div class="ico" style="background:linear-gradient(150deg,#ffc76b,#f6b44c)">H</div>
@@ -800,7 +1039,7 @@
   Array.prototype.forEach.call(menu.querySelectorAll("a"), function(a){ a.addEventListener("click", closeMenu); });
 
   /* ---- active section (nav + spine) ---- */
-  var sections = ["home","about","work","apps","skills","experience","contact"];
+  var sections = ["home","about","work","workflows","apps","skills","experience","contact"];
   var spineLinks = {}, navLinks = {};
   Array.prototype.forEach.call(document.querySelectorAll(".spine a"), function(a){ spineLinks[a.getAttribute("data-spine")] = a; });
   Array.prototype.forEach.call(document.querySelectorAll(".nav-links a"), function(a){
@@ -824,6 +1063,18 @@
     }, {threshold:0.35});
     Array.prototype.forEach.call(document.querySelectorAll("[data-flow]"), function(f){ flowObserver.observe(f); });
   }
+
+  /* ---- workflow library filter ---- */
+  var wfButtons = document.querySelectorAll(".wf-filter");
+  var wfCards = document.querySelectorAll(".wf");
+  function setFilter(f){
+    Array.prototype.forEach.call(wfButtons, function(b){ b.setAttribute("aria-pressed", b.getAttribute("data-filter")===f ? "true":"false"); });
+    Array.prototype.forEach.call(wfCards, function(c){ c.hidden = !(f==="all" || c.getAttribute("data-sys")===f); });
+  }
+  Array.prototype.forEach.call(wfButtons, function(b){ b.addEventListener("click", function(){ setFilter(b.getAttribute("data-filter")); }); });
+  Array.prototype.forEach.call(document.querySelectorAll("[data-jump]"), function(a){
+    a.addEventListener("click", function(){ setFilter(a.getAttribute("data-jump")); });
+  });
 
   /* ---- project cursor glow ---- */
   Array.prototype.forEach.call(document.querySelectorAll(".proj"), function(card){
